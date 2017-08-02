@@ -1,0 +1,22 @@
+set fish_color_autosuggestion 969896
+set fish_color_command a6e22e
+set fish_color_comment 585858
+set fish_color_cwd green
+set fish_color_cwd_root red
+set fish_color_end eaeaea
+set fish_color_error ff0000
+set fish_color_escape bryellow\x1e\x2d\x2dbold
+set fish_color_history_current \x2d\x2dbold
+set fish_color_host normal
+set fish_color_match \x2d\x2dbackground\x3dbrblue
+set fish_color_normal normal
+set fish_color_operator bryellow
+set fish_color_param ff8700
+set fish_color_quote ffff5f
+set fish_color_redirection ff5fd7
+set fish_color_search_match bryellow\x1e\x2d\x2dbackground\x3dbrblack
+set fish_color_selection white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+set fish_color_status red
+set fish_color_user brgreen
+set fish_color_valid_path \x2d\x2dunderline
+
