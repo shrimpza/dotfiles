@@ -9,11 +9,13 @@ set $ws2 2:
 set $ws3 3:
 set $ws4 4:
 
+set $lock ~/dotfiles/bin/lock.sh
+
 exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/
 exec --no-startup-id bash ~/.profile
 
 exec --no-startup-id volumeicon
-exec --no-startup-id xautolock -time 5 -locker '~/bin/lock.sh'
+exec --no-startup-id xautolock -time 5 -locker '$lock'
 
 exec --no-startup-id i3-msg 'workspace $ws4; exec pcmanfm'
 exec --no-startup-id i3-msg 'workspace $ws1; exec i3-sensible-terminal'
@@ -24,12 +26,6 @@ exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -46,7 +42,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (launcher, rather than dmenu)
 bindsym $mod+d exec PATH=~/bin:$PATH rofi -show run -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 6 -width "50%"
- 
+
 # alt-tab :D
 bindsym Mod1+Tab exec rofi -show window -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 0 -width "50%"
 
@@ -55,13 +51,13 @@ bindsym Print exec scrot /tmp/scrot.png && gimp /tmp/scrot.png
 bindsym $Mod+Print exec scrot -u /tmp/scrot.png && gimp /tmp/scrot.png
 
 # Screen lock
-bindsym $Mod+l exec "~/bin/lock.sh"
+bindsym $Mod+l exec $lock
 
 # Fancy keyboard controls
 # volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight +5
@@ -73,10 +69,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -5
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -140,7 +136,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
- 
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -193,4 +189,3 @@ bar {
     font pango:DejaVu Sans Mono 8
     strip_workspace_numbers yes
 }
-
