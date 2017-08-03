@@ -15,6 +15,8 @@
   - firefox
   - i3lock
   - xautolock
+  - xbacklight
+  - pavucontrol
 
 - others
   - pip install py3status [--upgrade]
