@@ -13,6 +13,8 @@
   - pcmanfm
   - lm-sensors
   - firefox
+  - i3lock
+  - xautolock
 
 - others
   - pip install py3status [--upgrade]
