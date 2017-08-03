@@ -15,6 +15,7 @@ exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/
 exec --no-startup-id bash ~/.profile
 
 exec --no-startup-id volumeicon
+exec --no-startup-id ~/bin/greenclip daemon
 exec --no-startup-id xautolock -time 5 -locker '$lock'
 
 exec --no-startup-id i3-msg 'workspace $ws4; exec pcmanfm'
@@ -45,6 +46,9 @@ bindsym $mod+d exec PATH=~/bin:$PATH rofi -show run -font "monospace 10" -config
 
 # alt-tab :D
 bindsym Mod1+Tab exec rofi -show window -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 0 -width "50%"
+
+# clipboard history
+bindsym $mod+c exec PATH=~/bin:$PATH rofi -show clipboard -modi "clipboard:greenclip print" -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 0 -width "50%"
 
 # Screenshot
 bindsym Print exec scrot /tmp/scrot.png && gimp /tmp/scrot.png

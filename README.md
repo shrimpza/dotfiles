@@ -20,9 +20,9 @@
 
 - others
   - pip install py3status [--upgrade]
+  - https://github.com/erebe/greenclip/releases
 
 ## TODO
 
 - merge laptop configs
 - things
-
