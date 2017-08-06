@@ -17,6 +17,7 @@
   - xautolock
   - xbacklight
   - pavucontrol
+  - imagemagik
 
 - others
   - pip install py3status [--upgrade]
