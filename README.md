@@ -4,13 +4,14 @@
 
 - packages:
   - i3
+  - dunst
   - lxterminal (TODO: forgot how to set i3-sensible-terminal)
   - fish (change user shell)
   - rofi
   - fonts-font-awesome
   - feh
   - volumeicon
-  - pcmanfm
+  - pcmanfm / thunar
   - lm-sensors
   - firefox
   - i3lock
