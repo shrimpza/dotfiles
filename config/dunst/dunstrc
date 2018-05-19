@@ -153,7 +153,7 @@
 
     # Paths to default icons.
     #icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/hicolor/32x32/apps/
-    icon_folders = /usr/share/icons/Vibrancy-Colors/status/32/:/usr/share/icons/Vibrancy-Colors/devices/32/:/usr/share/icons/Vibrancy-Colors/apps/32/
+    icon_folders = /usr/share/icons/Adwaita/32x32/status/:/usr/share/icons/Adwaita/32x32/devices/:/usr/share/icons/Adwaita/32x32/apps/
 
 [frame]
     width = 1
