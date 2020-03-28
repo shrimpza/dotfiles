@@ -1,0 +1,4 @@
+#!/bin/bash
+
+deluged && deluge-web -f -p 8090
+

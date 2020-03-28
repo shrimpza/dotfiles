@@ -11,14 +11,17 @@ set $ws4 4:
 
 set $lock ~/dotfiles/bin/lock.sh
 
-exec --no-startup-id dispwin ~/.config/display-profile.icc
+#exec --no-startup-id dispwin ~/.config/display-profile.icc
+exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 100.00
 
 exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/
 exec --no-startup-id bash ~/.profile
 
-exec --no-startup-id volumeicon
+#exec --no-startup-id volumeicon
 exec --no-startup-id ~/bin/greenclip daemon
 exec --no-startup-id xautolock -time 5 -locker '$lock'
+
+exec --no-startup-id polybar main -r
 
 exec --no-startup-id i3-msg 'workspace $ws4; exec thunar'
 exec --no-startup-id i3-msg 'workspace $ws1; exec i3-sensible-terminal'
@@ -61,9 +64,9 @@ bindsym $Mod+l exec $lock
 
 # Fancy keyboard controls
 # volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight +5
@@ -190,11 +193,11 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command py3status -c ~/.config/i3/status.conf
-    font pango:DejaVu Sans Mono 10
-    strip_workspace_numbers yes
-}
+#bar {
+#    status_command py3status -c ~/.config/i3/status.conf
+#    font pango:DejaVu Sans Mono 10
+#    strip_workspace_numbers yes
+#}
 
 # windows arrangements
 for_window [class="Steam"] floating enable
