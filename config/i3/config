@@ -56,8 +56,8 @@ bindsym Mod1+Tab exec rofi -show window -font "monospace 10" -config ~/.config/i
 bindsym $mod+c exec PATH=~/bin:$PATH rofi -show clipboard -modi "clipboard:greenclip print" -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 0 -width "50%"
 
 # Screenshot
-bindsym Print exec scrot /tmp/scrot.png && gimp /tmp/scrot.png
-bindsym $Mod+Print exec scrot -u /tmp/scrot.png && gimp /tmp/scrot.png
+bindsym Print exec scrot -o /tmp/scrot.png && gimp /tmp/scrot.png
+bindsym $Mod+Print exec scrot -o -u /tmp/scrot.png && gimp /tmp/scrot.png
 
 # Screen lock
 bindsym $Mod+l exec $lock
