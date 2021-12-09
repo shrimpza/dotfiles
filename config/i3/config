@@ -12,14 +12,16 @@ set $ws4 4:
 set $lock ~/dotfiles/bin/lock.sh
 
 #exec --no-startup-id dispwin ~/.config/display-profile.icc
-exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 100.00
+
+#exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 100.00
+exec --no-startup-id xrandr --output HDMI-A-0 --rate 100.00 --right-of eDP --auto --primary
 
 exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/
 exec --no-startup-id bash ~/.profile
 
 #exec --no-startup-id volumeicon
 exec --no-startup-id ~/bin/greenclip daemon
-exec --no-startup-id xautolock -time 5 -locker '$lock'
+exec --no-startup-id xautolock -time 10 -locker '$lock'
 
 exec --no-startup-id polybar main -r
 
@@ -47,7 +49,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (launcher, rather than dmenu)
-bindsym $mod+d exec PATH=~/bin:$PATH rofi -show run -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 6 -width "50%"
+bindsym $mod+d exec PATH=~/bin:$PATH rofi -show run -font "monospace 10" -config ~/.config/i3/rofi.rasi -bw 1 -location 6 -width "50%" -theme ~/.config/i3/rofi.theme.rasi
 
 # alt-tab :D
 bindsym Mod1+Tab exec rofi -show window -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 0 -width "50%"
@@ -69,8 +71,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight +5
-bindsym XF86MonBrightnessDown exec xbacklight -5
+bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
