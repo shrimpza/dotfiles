@@ -47,7 +47,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (launcher, rather than dmenu)
-bindsym $mod+d exec PATH=~/bin:$PATH rofi -show run -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 6 -width "50%"
+bindsym $mod+d exec PATH=~/bin:$PATH rofi -show run -font "monospace 10" -config ~/.config/i3/rofi.rasi -theme ~/.config/i3/rofi.theme.rasi -bw 1 -location 6 -width "50%"
 
 # alt-tab :D
 bindsym Mod1+Tab exec rofi -show window -font "monospace 10" -config ~/.config/i3/rofi.conf -bw 1 -location 0 -width "50%"
