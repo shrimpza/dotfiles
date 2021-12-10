@@ -14,7 +14,7 @@ set $lock ~/dotfiles/bin/lock.sh
 #exec --no-startup-id dispwin ~/.config/display-profile.icc
 exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 100.00
 
-exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/
+exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/moons
 exec --no-startup-id bash ~/.profile
 
 #exec --no-startup-id volumeicon
