@@ -3,7 +3,8 @@ throttle-ms = 50
 throttle-limit = 5
 
 [bar/main]
-monitor = DP-0
+monitor = DP-1
+monitor-fallback = eDP-1
 width = 100%
 height = 20
 offset-y = 0
@@ -12,22 +13,22 @@ bottom = true
 background = #000000
 foreground = #ffffff
 
-overline-size = 2
+overline-size = 1
 overline-color = #bc92f8
-underline-size = 2
+underline-size = 1
 underline-color = #bc92f8
 
-spacing = 2
+spacing = 1
 padding-right = 2
 module-margin-left = 0
-module-margin-right = 2
+module-margin-right = 1
 
-font-0 = DejaVuSans:size=10;2
-font-1 = DejaVuSansMono:size=10;2
-font-2 = FontAwesome:size=10;2
+font-0 = DejaVuSans:size=8.5;2
+font-1 = DejaVuSansMono:size=8.5;2
+font-2 = FontAwesome:size=8.5;2
 
 modules-left = i3 xwindow
-modules-right = temperature cpu memory disk network load_avg clock volume
+modules-right = temperature cpu memory disk wlan battery load_avg clock volume
 
 tray-position = right
 tray-detached = false
@@ -35,6 +36,8 @@ tray-background = #000000
 
 [module/i3]
 type = internal/i3
+
+index-sort = true
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -189,6 +192,7 @@ label-connected-background = #332255
 [module/xwindow]
 type = internal/xwindow
 label-font = 1
+label-maxlen = 80
 
 [module/temperature]
 type = internal/temperature
@@ -196,12 +200,13 @@ type = internal/temperature
 label =  %temperature-c%
 label-font = 2
 
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input
+
 
 [module/disk]
 type = internal/fs
 
 mount-0 = /
-mount-1 = /media/shrimp/MoreStuff
 spacing = 0
 fixed-values = false
 
@@ -210,3 +215,47 @@ label-mounted =  %free%
 label-mounted-padding = 2
 label-mounted-font = 2
 label-mounted-background = #223377
+
+[module/battery]
+type = internal/battery
+
+time-format = %Hh%M
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-charging = <animation-charging> <label-charging>
+
+label-discharging-font = 2
+label-discharging = %percentage%% (%time%)
+
+label-charging = %percentage%% (%time)
+label-charging-font = 2
+
+label-full = %percentage%%
+label-full-font = 2
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+[module/wlan]
+type = internal/network
+interface = wlp0s20f3
+
+label-connected =  %local_ip% (%signal%%, %essid%, %downspeed:8%/%upspeed:8%)
+label-connected-font = 2
+
+label-disconnected =  [not connected]
+label-disconnected-font = 2
+label-disconnected-foreground = #ff0000
+
+label-connected-padding = 2
+label-connected-background = #332255
+
