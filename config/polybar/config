@@ -26,9 +26,10 @@ module-margin-right = 1
 font-0 = DejaVuSans:size=9;2
 font-1 = DejaVuSansMono:size=9;2
 font-2 = FontAwesome:size=9;2
+font-3 = NotoSans:size=9;2
 
 modules-left = i3 xwindow
-modules-right = temperature cpu memory wlan battery load_avg clock volume
+modules-right = temperature cpu_usage cpu memory disk wlan battery load_avg clock volume
 
 tray-position = right
 tray-detached = false
@@ -44,7 +45,7 @@ ws-icon-3 = 4;
 ws-icon-4 = 5;5
 ws-icon-5 = 6;6
 ws-icon-6 = 7;7
-ws-icon-7 = 8;8
+ws-icon-7 = 8;
 ws-icon-8 = 9;9
 ws-icon-9 = 10;10
 ws-icon-default = *
@@ -138,6 +139,16 @@ format-background = #aa1259
 format-foreground = #ffffff
 
 format-font = 2
+
+[module/cpu_usage]
+type = custom/script
+exec = sed 's/$/\n/' /home/shrimp/.cpu-usage | sed 's/\x0//g'
+interval = 1
+
+format-prefix = " "
+format-padding = 2
+format-background = #552233
+label-font = 2
 
 [module/load_avg]
 type = custom/script
@@ -234,8 +245,8 @@ label-connected-background = #332255
 
 [module/xwindow]
 type = internal/xwindow
-label-font = 1
-label-maxlen = 70
+label-font = 2
+label-maxlen = 90
 
 [module/temperature]
 type = internal/temperature
@@ -256,3 +267,4 @@ label-mounted =  %free%
 label-mounted-padding = 2
 label-mounted-font = 2
 label-mounted-background = #223377
+

@@ -14,7 +14,7 @@ set $lock ~/dotfiles/bin/lock.sh
 #exec --no-startup-id dispwin ~/.config/display-profile.icc
 
 #exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 100.00
-exec --no-startup-id xrandr --output HDMI-A-0 --rate 100.00 --right-of eDP --auto --primary
+exec --no-startup-id xrandr --output HDMI-A-0 --rate 120.00 --right-of eDP --auto --primary
 
 exec --no-startup-id feh --recursive --randomize --bg-fill ~/Pictures/wallpaper/
 exec --no-startup-id bash ~/.profile
@@ -206,4 +206,5 @@ for_window [class="Steam"] floating enable
 for_window [class="Firefox"] border none
 for_window [class="xcalc"] floating enable
 for_window [class="linphone"] floating enable
+for_window [class="VirtualBox"] border none
 
